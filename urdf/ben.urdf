@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot name="ben">
+  <link name="base_link">
+    
+    <visual>
+        <geometry>
+            <mesh filename="package://ben_description/models/meshes/ComplexBEN.dae"/>
+        </geometry>
+    </visual>
+    
+    <inertial>
+        <mass value="2000"/>
+        <inertia/>
+    </inertial>
+    
+  </link>
+</robot>
