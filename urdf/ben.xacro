@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ben">
+
+  <!-- Include macros for dynamics plugins -->
+  <xacro:include filename="$(find ben_description)/urdf/ben_dynamics_plugin.xacro" />
+  
+  <!-- Attach hydrodynamics plugin -->
+  <xacro:usv_dynamics_gazebo name="ben_dynamics_plugin" />
+  
+  <!-- Robot mesh -->
+  <xacro:include filename="$(find ben_description)/urdf/ben.urdf" />
+
+
+</robot>

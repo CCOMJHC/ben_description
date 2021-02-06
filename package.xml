@@ -13,4 +13,5 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>xacro</depend>
+  <depend>usv_gazebo_plugins</depend>
 </package>

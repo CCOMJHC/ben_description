@@ -2,9 +2,11 @@
     <arg name="model" default="$(find ben_description)/urdf/ben.urdf"/>
     <arg name="rvizconfig" default="$(find ben_description)/rviz/urdf.rviz" />
 
-    <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+    <param name="ben/robot_description" command="$(find xacro)/xacro $(arg model)" />
 
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+      <remap from="robot_description" to="ben/robot_description" />
+    </node>
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
 </launch>
