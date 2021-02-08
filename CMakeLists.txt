@@ -4,8 +4,11 @@ project(ben_description)
 find_package(catkin REQUIRED COMPONENTS
   xacro
   usv_gazebo_plugins
+  vrx_gazebo
+  wamv_description
+  wamv_gazebo
 )
 
 catkin_package(
-  CATKIN_DEPENDS xacro usv_gazebo_plugins
+  CATKIN_DEPENDS xacro usv_gazebo_plugins vrx_gazebo
 )
