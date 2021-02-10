@@ -1,23 +1,40 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="ben">
 
+  <!-- Note: this is only used for some sensors that do not correctly use the
+  robotNamespace parameter -->
+  <xacro:arg name="namespace" default="ben"/>
+  <xacro:arg name="thruster_namespace" default="thrusters/"/>
+  <xacro:arg name="camera_namespace" default="cameras/"/>  
+  <xacro:arg name="sensor_namespace" default="sensors/"/>
+  <xacro:property name="thruster_namespace" value="$(arg thruster_namespace)" scope="global" />
+  <xacro:property name="camera_namespace" value="$(arg camera_namespace)" scope="global" />
+  <xacro:property name="sensor_namespace" value="$(arg sensor_namespace)" scope="global" />
+  <xacro:property name="namespace" value="$(arg namespace)" scope="global" />
+
   <!-- Include macros for dynamics plugins -->
   <xacro:include filename="$(find ben_description)/urdf/ben_dynamics_plugin.xacro" />
   
   <!-- Attach hydrodynamics plugin -->
   <xacro:usv_dynamics_gazebo name="ben_dynamics_plugin" />
   
+  <xacro:include filename="$(find ben_description)/urdf/sensors/ben_gps.xacro" />
+  <xacro:ben_gps name="gps_ben" x="-0.85" />
+
+  <xacro:include filename="$(find ben_description)/urdf/sensors/ben_imu.xacro" />
+  <xacro:ben_imu name="imu_ben" y="-0.2" />
+
+  <xacro:include filename="$(find ben_description)/urdf/sensors/lidar.xacro" />
+  <xacro:lidar name="lidar_ben" y="-0.3" type="16_beam"/>
+
+  <xacro:include filename="$(find ben_description)/urdf/sensors/ben_camera.xacro" />
+  <xacro:ben_camera name="front_camera" y="0.3" x="0.75" P="${radians(15)}" />
+  
   <!-- Robot mesh -->
   <xacro:include filename="$(find ben_description)/urdf/ben.urdf" />
 
-  <!-- Note: this is only used for some sensors that do not correctly use the
-  robotNamespace parameter -->
-  <xacro:arg name="namespace" default="ben"/>
-  <xacro:property name="namespace" value="$(arg namespace)" scope="global" />
     
   <!-- === Thruster === -->
-  <xacro:arg name="thruster_namespace" default="thrusters/"/>
-  <xacro:property name="thruster_namespace" value="$(arg thruster_namespace)" scope="global" />
   <xacro:include filename="$(find ben_description)/urdf/ben_thruster.xacro" />
   
 </robot>
