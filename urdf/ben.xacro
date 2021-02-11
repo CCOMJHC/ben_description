@@ -13,28 +13,28 @@
   <xacro:property name="namespace" value="$(arg namespace)" scope="global" />
 
   <!-- Include macros for dynamics plugins -->
-  <xacro:include filename="$(find ben_description)/urdf/ben_dynamics_plugin.xacro" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/ben_dynamics_plugin.xacro" />
   
   <!-- Attach hydrodynamics plugin -->
   <xacro:usv_dynamics_gazebo name="ben_dynamics_plugin" />
   
-  <xacro:include filename="$(find ben_description)/urdf/sensors/ben_gps.xacro" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_gps.xacro" />
   <xacro:ben_gps name="gps_ben" x="-0.85" />
 
-  <xacro:include filename="$(find ben_description)/urdf/sensors/ben_imu.xacro" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_imu.xacro" />
   <xacro:ben_imu name="imu_ben" y="-0.2" />
 
-  <xacro:include filename="$(find ben_description)/urdf/sensors/lidar.xacro" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/sensors/lidar.xacro" />
   <xacro:lidar name="lidar_ben" y="-0.3" type="16_beam"/>
 
-  <xacro:include filename="$(find ben_description)/urdf/sensors/ben_camera.xacro" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_camera.xacro" />
   <xacro:ben_camera name="front_camera" y="0.3" x="0.75" P="${radians(15)}" />
   
   <!-- Robot mesh -->
-  <xacro:include filename="$(find ben_description)/urdf/ben.urdf" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/ben.urdf" />
 
     
   <!-- === Thruster === -->
-  <xacro:include filename="$(find ben_description)/urdf/ben_thruster.xacro" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/ben_thruster.xacro" />
   
 </robot>

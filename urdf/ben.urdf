@@ -12,13 +12,13 @@
   <link name="imu_link">
     <visual>
         <geometry>
-            <mesh filename="package://ben_description/models/meshes/BEN_shell.dae"/>
+            <mesh filename="package://ben_gazebo/models/meshes/BEN_shell.dae"/>
         </geometry>
     </visual>
     
     <collision>
         <geometry>
-            <mesh filename="package://ben_description/models/meshes/BEN_convex_hull.dae"/>
+            <mesh filename="package://ben_gazebo/models/meshes/BEN_convex_hull.dae"/>
         </geometry>
     </collision>
     

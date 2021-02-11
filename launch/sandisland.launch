@@ -36,7 +36,7 @@
   </include>
 
   <!-- Load robot model -->
-  <arg name="urdf" default="$(find ben_description)/urdf/ben.xacro"/>
+  <arg name="urdf" default="$(find ben_gazebo)/urdf/ben.xacro"/>
 
   <param name="$(arg namespace)/robot_description"
          command="$(find xacro)/xacro &#x002D;&#x002D;inorder '$(arg urdf)'

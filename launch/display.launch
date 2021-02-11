@@ -1,6 +1,6 @@
 <launch>
-    <arg name="model" default="$(find ben_description)/urdf/ben.urdf"/>
-    <arg name="rvizconfig" default="$(find ben_description)/rviz/urdf.rviz" />
+    <arg name="model" default="$(find ben_gazebo)/urdf/ben.xacro"/>
+    <arg name="rvizconfig" default="$(find ben_gazebo)/rviz/urdf.rviz" />
 
     <param name="ben/robot_description" command="$(find xacro)/xacro $(arg model)" />
 

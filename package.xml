@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ben_description</name>
+  <name>ben_gazebo</name>
   <version>0.0.0</version>
   <description>
     URDF model of BEN, the Bathymetric Explorer and Navigator.
