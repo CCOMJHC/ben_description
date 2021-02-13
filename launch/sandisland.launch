@@ -14,6 +14,9 @@
   <!-- Start in a default namespace -->
   <arg name="namespace" default="ben"/>
 
+  <arg name="rviz" default="false" />
+  <arg name="rvizconfig" default="$(find ben_gazebo)/rviz/urdf.rviz" />
+
   <!-- Initial USV location and attitude-->
   <arg name="x" default="158" />
   <arg name="y" default="108" />
@@ -53,5 +56,12 @@
     <remap from="robot_description" to="ben/robot_description" />
   </node>
 
+  <node pkg="joint_state_publisher" type="joint_state_publisher"  name="joint_state_publisher">
+    <remap from="robot_description" to="ben/robot_description" />
+  </node>
+
+  <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
+
+  
 </launch>
 

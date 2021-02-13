@@ -4,7 +4,7 @@
   <!-- Note: this is only used for some sensors that do not correctly use the
   robotNamespace parameter -->
   <xacro:arg name="namespace" default="ben"/>
-  <xacro:arg name="thruster_namespace" default="thrusters/"/>
+  <xacro:arg name="thruster_namespace" default="thruster/"/>
   <xacro:arg name="camera_namespace" default="cameras/"/>  
   <xacro:arg name="sensor_namespace" default="sensors/"/>
   <xacro:property name="thruster_namespace" value="$(arg thruster_namespace)" scope="global" />
@@ -19,19 +19,19 @@
   <xacro:usv_dynamics_gazebo name="ben_dynamics_plugin" />
   
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_gps.xacro" />
-  <xacro:ben_gps name="gps_ben" x="-0.85" />
+  <xacro:ben_gps name="gps_ben" />
 
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_imu.xacro" />
-  <xacro:ben_imu name="imu_ben" y="-0.2" />
+  <xacro:ben_imu name="imu_ben" />
 
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/lidar.xacro" />
-  <xacro:lidar name="lidar_ben" y="-0.3" type="16_beam"/>
+  <xacro:lidar name="lidar_ben" x="-1.77" y="0.0" z="1.34" type="16_beam"/>
 
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_camera.xacro" />
-  <xacro:ben_camera name="front_camera" y="0.3" x="0.75" P="${radians(15)}" />
+  <xacro:ben_camera name="front_camera" y="0.1" x="-1.307" z="0.742" P="${radians(0)}" />
   
   <!-- Robot mesh -->
-  <xacro:include filename="$(find ben_gazebo)/urdf/ben.urdf" />
+  <xacro:include filename="$(find ben_gazebo)/urdf/ben_mesh.xacro" />
 
     
   <!-- === Thruster === -->

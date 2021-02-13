@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ben">
+
+  <xacro:property name="mass" value="950" />
+  
+  <xacro:property name="cg_x" value="-0.911" />
+  <xacro:property name="cg_y" value="-0.018" />
+  <xacro:property name="cg_z" value="-0.182" />
+  
+  <xacro:property name="ixx" value="280.97548467" />
+  <xacro:property name="ixy" value="-9.237803" />
+  <xacro:property name="ixz" value="-2.02566202" />
+  <xacro:property name="iyy" value="866.01489076" />
+  <xacro:property name="iyz" value="-0.43969229" />
+  <xacro:property name="izz" value="793.7913527" />
+  
+  <xacro:property name="buoyancy_offset" value=".35" />
+  
+  <link name="${namespace}/base_link">
+  </link>
+  
+  <joint name="${namespace}_base_to_motion_sensor_joint" type="fixed">
+      <parent link="${namespace}/base_link"/>
+      <child link="${namespace}/motion_sensor_link"/>
+      <origin xyz="${- cg_x} ${- cg_y} ${buoyancy_offset - cg_z}" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="${namespace}/motion_sensor_link">
+    <visual>
+        <geometry>
+            <mesh filename="package://ben_gazebo/models/meshes/BEN_shell.dae"/>
+        </geometry>
+    </visual>
+    
+    <collision>
+        <geometry>
+            <mesh filename="package://ben_gazebo/models/meshes/BEN_convex_hull.dae"/>
+        </geometry>
+    </collision>
+    
+    <inertial>
+        <!--Values obtained from OnShape-->
+        <origin xyz="${cg_x} ${cg_y} ${cg_z}" rpy="0 0 0"/>
+        <mass value="${mass}"/>
+        <inertia
+            ixx="${ixx}" ixy="${ixy}" ixz="${ixz}"
+            iyy="${iyy}" iyz="${iyz}"
+            izz="${izz}"/>
+    </inertial>
+    
+  </link>
+  
+</robot>
