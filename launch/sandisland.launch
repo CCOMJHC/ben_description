@@ -42,7 +42,7 @@
   <arg name="urdf" default="$(find ben_gazebo)/urdf/ben.xacro"/>
 
   <param name="$(arg namespace)/robot_description"
-         command="$(find xacro)/xacro &#x002D;&#x002D;inorder '$(arg urdf)'
+         command="$(find xacro)/xacro '$(arg urdf)'
          namespace:=$(arg namespace) "/>
 
   <!-- Spawn model in Gazebo -->
@@ -51,13 +51,13 @@
               -R $(arg R) -P $(arg P) -Y $(arg Y)
               -urdf -param $(arg namespace)/robot_description -model ben"/>
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher" ns="$(arg namespace)">
     <param name="publish_frequency" type="double" value="30.0" />
-    <remap from="robot_description" to="ben/robot_description" />
+<!--     <remap from="robot_description" to="ben/robot_description" /> -->
   </node>
 
-  <node pkg="joint_state_publisher" type="joint_state_publisher"  name="joint_state_publisher">
-    <remap from="robot_description" to="ben/robot_description" />
+  <node pkg="joint_state_publisher" type="joint_state_publisher"  name="joint_state_publisher" ns="$(arg namespace)">
+<!--     <remap from="robot_description" to="ben/robot_description" /> -->
   </node>
 
   <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ben_imu" params="name:=imu update_rate:=15">
+  <xacro:macro name="ben_factory_heading_sensor" params="name:=heading update_rate:=5">
     <link name="${namespace}/${name}_link">
       <inertial>
         <mass value="0.1"/>
@@ -17,16 +17,16 @@
       <plugin name="imu_plugin_${name}" filename="libhector_gazebo_ros_imu.so">
         <updateRate>${update_rate}</updateRate>
         <bodyName>${namespace}/${name}_link</bodyName>
-        <topicName>${namespace}/${sensor_namespace}imu/data</topicName>
-        <serviceName>${namespace}/${sensor_namespace}imu_service</serviceName>
+        <topicName>${namespace}/${sensor_namespace}heading</topicName>
+        <serviceName>${namespace}/${sensor_namespace}heading_service</serviceName>
         <!-- Manually prepend namespace to tf frame. -->
         <frameId>${namespace}/${name}_link</frameId>
         <alwaysOn>true</alwaysOn>
 
         <accelOffset>0.0 0.0 0.0</accelOffset>
-        <accelDrift>0.0 0.0 0.0</accelDrift>
+        <accelDrift>3.14 3.14 0.001</accelDrift>
         <accelDriftFrequency>0.00027 0.00027 0.000027</accelDriftFrequency>
-        <accelGaussianNoise>0.0 0.0 0.0</accelGaussianNoise>
+        <accelGaussianNoise>1.0 1.0 0.001</accelGaussianNoise>
 
         <rateOffset>0.0 0.0 0.0</rateOffset>
         <rateDrift>0.0 0.0 0.0</rateDrift>

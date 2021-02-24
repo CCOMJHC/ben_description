@@ -7,10 +7,9 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
-        - /RobotModel1/Status1
-        - /PointCloud21
+        - /TF1
       Splitter Ratio: 0.5
-    Tree Height: 336
+    Tree Height: 679
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -69,12 +68,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        ben/center_engine_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ben/center_propeller_link:
+        ben/engine_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -92,7 +86,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        ben/imu_ben_link:
+        ben/heading_ben_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -102,6 +96,98 @@ Visualization Manager:
           Show Trail: false
           Value: true
         ben/motion_sensor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_0_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_0_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_1_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_1_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_2_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_2_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_3_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_3_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_4_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_4_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ben/pano_5_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_5_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/posmv_ben_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/propeller_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -154,6 +240,161 @@ Visualization Manager:
       Transport Hint: raw
       Unreliable: false
       Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        ben/base_link:
+          Value: true
+        ben/engine_link:
+          Value: true
+        ben/front_camera_link:
+          Value: true
+        ben/front_camera_link_optical:
+          Value: true
+        ben/gps_ben_link:
+          Value: true
+        ben/heading_ben_link:
+          Value: true
+        ben/lidar_ben_link:
+          Value: true
+        ben/motion_sensor_link:
+          Value: true
+        ben/pano:
+          Value: true
+        ben/pano_0:
+          Value: true
+        ben/pano_0_base:
+          Value: true
+        ben/pano_0_optical:
+          Value: true
+        ben/pano_1:
+          Value: true
+        ben/pano_1_base:
+          Value: true
+        ben/pano_1_optical:
+          Value: true
+        ben/pano_2:
+          Value: true
+        ben/pano_2_base:
+          Value: true
+        ben/pano_2_optical:
+          Value: true
+        ben/pano_3:
+          Value: true
+        ben/pano_3_base:
+          Value: true
+        ben/pano_3_optical:
+          Value: true
+        ben/pano_4:
+          Value: true
+        ben/pano_4_base:
+          Value: true
+        ben/pano_4_optical:
+          Value: true
+        ben/pano_5:
+          Value: true
+        ben/pano_5_base:
+          Value: true
+        ben/pano_5_optical:
+          Value: true
+        ben/posmv_ben_link:
+          Value: true
+        ben/propeller_link:
+          Value: true
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        ben/base_link:
+          ben/motion_sensor_link:
+            ben/engine_link:
+              ben/propeller_link:
+                {}
+            ben/front_camera_link:
+              ben/front_camera_link_optical:
+                {}
+            ben/gps_ben_link:
+              {}
+            ben/heading_ben_link:
+              {}
+            ben/lidar_ben_link:
+              {}
+            ben/pano:
+              ben/pano_0_base:
+                ben/pano_0:
+                  ben/pano_0_optical:
+                    {}
+              ben/pano_1_base:
+                ben/pano_1:
+                  ben/pano_1_optical:
+                    {}
+              ben/pano_2_base:
+                ben/pano_2:
+                  ben/pano_2_optical:
+                    {}
+              ben/pano_3_base:
+                ben/pano_3:
+                  ben/pano_3_optical:
+                    {}
+              ben/pano_4_base:
+                ben/pano_4:
+                  ben/pano_4_optical:
+                    {}
+              ben/pano_5_base:
+                ben/pano_5:
+                  ben/pano_5_optical:
+                    {}
+            ben/posmv_ben_link:
+              {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz_textured_quads/MeshDisplayCustom
+      Enabled: true
+      Image Topic: /ben/sensors/cameras/pano_0/image_raw
+      Meters per pixel: 0.004999999888241291
+      Name: MeshDisplayPano0
+      Quad Frame: ben/pano_0_optical
+      Value: true
+    - Class: rviz_textured_quads/MeshDisplayCustom
+      Enabled: true
+      Image Topic: /ben/sensors/cameras/pano_1/image_raw
+      Meters per pixel: 0.004999999888241291
+      Name: MeshDisplayPano1
+      Quad Frame: ben/pano_1_optical
+      Value: true
+    - Class: rviz_textured_quads/MeshDisplayCustom
+      Enabled: true
+      Image Topic: /ben/sensors/cameras/pano_2/image_raw
+      Meters per pixel: 0.004999999888241291
+      Name: MeshDisplayPano2
+      Quad Frame: ben/pano_2_optical
+      Value: true
+    - Class: rviz_textured_quads/MeshDisplayCustom
+      Enabled: true
+      Image Topic: /ben/sensors/cameras/pano_3/image_raw
+      Meters per pixel: 0.004999999888241291
+      Name: MeshDisplayPano3
+      Quad Frame: ben/pano_3_optical
+      Value: true
+    - Class: rviz_textured_quads/MeshDisplayCustom
+      Enabled: true
+      Image Topic: /ben/sensors/cameras/pano_4/image_raw
+      Meters per pixel: 0.004999999888241291
+      Name: MeshDisplayPano4
+      Quad Frame: ben/pano_4_optical
+      Value: true
+    - Class: rviz_textured_quads/MeshDisplayCustom
+      Enabled: true
+      Image Topic: /ben/sensors/cameras/pano_5/image_raw
+      Meters per pixel: 0.004999999888241291
+      Name: MeshDisplayPano5
+      Quad Frame: ben/pano_5_optical
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -182,7 +423,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 66.40509033203125
+      Distance: 32.873512268066406
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -190,27 +431,27 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 4.9211745262146
-        Y: -6.836918830871582
-        Z: 5.31954288482666
+        X: 1.7616325616836548
+        Y: 4.077004432678223
+        Z: 3.056419610977173
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.390397846698761
+      Pitch: 0.6803978681564331
       Target Frame: <Fixed Frame>
-      Yaw: 2.55539870262146
+      Yaw: 0.8153981566429138
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 950
+  Height: 1521
   Hide Left Dock: false
   Hide Right Dock: true
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000002810000031cfc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b000001d9000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d006100670065010000021a0000013d0000001600ffffff000000010000010f000003c5fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003c5000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007370000003efc0100000002fb0000000800540069006d00650100000000000007370000024400fffffffb0000000800540069006d00650100000000000004500000000000000000000004b00000031c00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000028100000557fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b00000330000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650100000371000002210000001600ffffff000000010000010f000003c5fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003c5000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007fb0000003efc0100000002fb0000000800540069006d00650100000000000007fb0000024400fffffffb0000000800540069006d00650100000000000004500000000000000000000005740000055700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -219,6 +460,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: true
-  Width: 1847
-  X: 1544
-  Y: 78
+  Width: 2043
+  X: 1703
+  Y: 50

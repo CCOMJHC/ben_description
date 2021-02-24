@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ben_gps" params="name:=gps update_rate:=15">
+  <xacro:macro name="ben_posmv" params="name:=posmv update_rate:=100">
     <link name="${namespace}/${name}_link">
       <inertial>
         <mass value="1"/>
@@ -14,19 +14,19 @@
       <child link="${namespace}/${name}_link" />
     </joint>
     <gazebo>
-      <plugin name="gps_plugin_${name}" filename="libhector_gazebo_ros_gps.so">
+      <plugin name="posmv_gps_plugin_${name}" filename="libhector_gazebo_ros_gps.so">
         <updateRate>${update_rate}</updateRate>
         <alwaysOn>true</alwaysOn>
         <bodyName>${namespace}/${name}_link</bodyName>
         <!-- Manually prepend namespace to tf frame. -->
         <frameId>${namespace}/${name}_link</frameId>
-        <topicName>${namespace}/${sensor_namespace}gps/fix</topicName>
+        <topicName>${namespace}/${sensor_namespace}posmv/position</topicName>
         <!-- Note that the hector_gazebo_ros_gps plugin uses NWU coordinates
              for reporting velocities.  This may cause problems if localization
              requires velocity in ENU.
              See Issue #64 in VRX project for details
              https://bitbucket.org/osrf/vrx/issues/64 -->
-        <velocityTopicName>${namespace}/${sensor_namespace}gps/fix_velocity</velocityTopicName>
+        <velocityTopicName>${namespace}/${sensor_namespace}posmv/velocity</velocityTopicName>
         <useWorldSphericalCoordinates>true</useWorldSphericalCoordinates>
         <offset>0.0 0.0 0.0</offset>
         <drift>0.0 0.0 0.0</drift>
@@ -35,6 +35,33 @@
         <velocityDrift>0.0 0.0 0.0</velocityDrift>
         <velocityGaussianNoise>0.0 0.0 0.0</velocityGaussianNoise>
       </plugin>
+      
+      <plugin name="posmv_imu_plugin_${name}" filename="libhector_gazebo_ros_imu.so">
+        <updateRate>${update_rate}</updateRate>
+        <bodyName>${namespace}/${name}_link</bodyName>
+        <topicName>${namespace}/${sensor_namespace}posmv/orientation</topicName>
+        <serviceName>${namespace}/${sensor_namespace}posmv/imu_service</serviceName>
+        <!-- Manually prepend namespace to tf frame. -->
+        <frameId>${namespace}/${name}_link</frameId>
+        <alwaysOn>true</alwaysOn>
+
+        <accelOffset>0.0 0.0 0.0</accelOffset>
+        <accelDrift>0.0 0.0 0.0</accelDrift>
+        <accelDriftFrequency>0.00027 0.00027 0.000027</accelDriftFrequency>
+        <accelGaussianNoise>0.0 0.0 0.0</accelGaussianNoise>
+
+        <rateOffset>0.0 0.0 0.0</rateOffset>
+        <rateDrift>0.0 0.0 0.0</rateDrift>
+        <rateDriftFrequency>0.00027 0.00027 0.000027</rateDriftFrequency>
+        <rateGaussianNoise>0.0 0.0 0.0</rateGaussianNoise>
+
+        <yawOffset>0.0</yawOffset>
+        <yawDrift>0.0</yawDrift>
+        <yawDriftFrequency>0.00027</yawDriftFrequency>
+        <yawGaussianNoise>0.0</yawGaussianNoise>
+
+      </plugin>
+
     </gazebo>
   </xacro:macro>
 </robot>

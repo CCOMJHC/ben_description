@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ben_gps" params="name:=gps update_rate:=15">
+  <xacro:macro name="ben_factory_gps" params="name:=gps update_rate:=5">
     <link name="${namespace}/${name}_link">
       <inertial>
         <mass value="1"/>
@@ -12,6 +12,7 @@
       <limit effort="1000.0" lower="0.0" upper="0" velocity="0"/>
       <parent link="${namespace}/motion_sensor_link" />
       <child link="${namespace}/${name}_link" />
+      <origin xyz="-0.953 0.103 0.628" rpy="0 0 0"/>
     </joint>
     <gazebo>
       <plugin name="gps_plugin_${name}" filename="libhector_gazebo_ros_gps.so">
@@ -20,17 +21,18 @@
         <bodyName>${namespace}/${name}_link</bodyName>
         <!-- Manually prepend namespace to tf frame. -->
         <frameId>${namespace}/${name}_link</frameId>
-        <topicName>${namespace}/${sensor_namespace}gps/fix</topicName>
+        <topicName>${namespace}/${sensor_namespace}gps/position</topicName>
         <!-- Note that the hector_gazebo_ros_gps plugin uses NWU coordinates
              for reporting velocities.  This may cause problems if localization
              requires velocity in ENU.
              See Issue #64 in VRX project for details
              https://bitbucket.org/osrf/vrx/issues/64 -->
-        <velocityTopicName>${namespace}/${sensor_namespace}gps/fix_velocity</velocityTopicName>
+        <velocityTopicName>${namespace}/${sensor_namespace}gps/velocity</velocityTopicName>
         <useWorldSphericalCoordinates>true</useWorldSphericalCoordinates>
         <offset>0.0 0.0 0.0</offset>
-        <drift>0.0 0.0 0.0</drift>
-        <gaussianNoise>0 0 0</gaussianNoise>
+        <drift>0.5 0.5 0.5</drift>
+        <driftFrequency>0.1 0.1 0.1</driftFrequency>
+        <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
         <velocityOffset>0.0 0.0 0.0</velocityOffset>
         <velocityDrift>0.0 0.0 0.0</velocityDrift>
         <velocityGaussianNoise>0.0 0.0 0.0</velocityGaussianNoise>
