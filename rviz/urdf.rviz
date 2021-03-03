@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /RobotModel1
         - /TF1
+        - /MeshDisplayPano01/Status1
       Splitter Ratio: 0.5
     Tree Height: 679
   - Class: rviz/Selection
@@ -118,6 +119,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        ben/pano_0_optical_rviz_mesh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         ben/pano_1:
           Alpha: 1
           Show Axes: false
@@ -128,6 +133,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         ben/pano_1_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_1_optical_rviz_mesh:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -144,6 +153,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        ben/pano_2_optical_rviz_mesh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         ben/pano_3:
           Alpha: 1
           Show Axes: false
@@ -154,6 +167,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         ben/pano_3_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_3_optical_rviz_mesh:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -170,6 +187,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        ben/pano_4_optical_rviz_mesh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         ben/pano_5:
           Alpha: 1
           Show Axes: false
@@ -180,6 +201,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         ben/pano_5_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ben/pano_5_optical_rviz_mesh:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -269,11 +294,15 @@ Visualization Manager:
           Value: true
         ben/pano_0_optical:
           Value: true
+        ben/pano_0_optical_rviz_mesh:
+          Value: true
         ben/pano_1:
           Value: true
         ben/pano_1_base:
           Value: true
         ben/pano_1_optical:
+          Value: true
+        ben/pano_1_optical_rviz_mesh:
           Value: true
         ben/pano_2:
           Value: true
@@ -281,11 +310,15 @@ Visualization Manager:
           Value: true
         ben/pano_2_optical:
           Value: true
+        ben/pano_2_optical_rviz_mesh:
+          Value: true
         ben/pano_3:
           Value: true
         ben/pano_3_base:
           Value: true
         ben/pano_3_optical:
+          Value: true
+        ben/pano_3_optical_rviz_mesh:
           Value: true
         ben/pano_4:
           Value: true
@@ -293,11 +326,15 @@ Visualization Manager:
           Value: true
         ben/pano_4_optical:
           Value: true
+        ben/pano_4_optical_rviz_mesh:
+          Value: true
         ben/pano_5:
           Value: true
         ben/pano_5_base:
           Value: true
         ben/pano_5_optical:
+          Value: true
+        ben/pano_5_optical_rviz_mesh:
           Value: true
         ben/posmv_ben_link:
           Value: true
@@ -328,27 +365,33 @@ Visualization Manager:
               ben/pano_0_base:
                 ben/pano_0:
                   ben/pano_0_optical:
-                    {}
+                    ben/pano_0_optical_rviz_mesh:
+                      {}
               ben/pano_1_base:
                 ben/pano_1:
                   ben/pano_1_optical:
-                    {}
+                    ben/pano_1_optical_rviz_mesh:
+                      {}
               ben/pano_2_base:
                 ben/pano_2:
                   ben/pano_2_optical:
-                    {}
+                    ben/pano_2_optical_rviz_mesh:
+                      {}
               ben/pano_3_base:
                 ben/pano_3:
                   ben/pano_3_optical:
-                    {}
+                    ben/pano_3_optical_rviz_mesh:
+                      {}
               ben/pano_4_base:
                 ben/pano_4:
                   ben/pano_4_optical:
-                    {}
+                    ben/pano_4_optical_rviz_mesh:
+                      {}
               ben/pano_5_base:
                 ben/pano_5:
                   ben/pano_5_optical:
-                    {}
+                    ben/pano_5_optical_rviz_mesh:
+                      {}
             ben/posmv_ben_link:
               {}
       Update Interval: 0
@@ -358,42 +401,42 @@ Visualization Manager:
       Image Topic: /ben/sensors/cameras/pano_0/image_raw
       Meters per pixel: 0.004999999888241291
       Name: MeshDisplayPano0
-      Quad Frame: ben/pano_0_optical
+      Quad Frame: ben/pano_0_optical_rviz_mesh
       Value: true
     - Class: rviz_textured_quads/MeshDisplayCustom
       Enabled: true
       Image Topic: /ben/sensors/cameras/pano_1/image_raw
       Meters per pixel: 0.004999999888241291
       Name: MeshDisplayPano1
-      Quad Frame: ben/pano_1_optical
+      Quad Frame: ben/pano_1_optical_rviz_mesh
       Value: true
     - Class: rviz_textured_quads/MeshDisplayCustom
       Enabled: true
       Image Topic: /ben/sensors/cameras/pano_2/image_raw
       Meters per pixel: 0.004999999888241291
       Name: MeshDisplayPano2
-      Quad Frame: ben/pano_2_optical
+      Quad Frame: ben/pano_2_optical_rviz_mesh
       Value: true
     - Class: rviz_textured_quads/MeshDisplayCustom
       Enabled: true
       Image Topic: /ben/sensors/cameras/pano_3/image_raw
       Meters per pixel: 0.004999999888241291
       Name: MeshDisplayPano3
-      Quad Frame: ben/pano_3_optical
+      Quad Frame: ben/pano_3_optical_rviz_mesh
       Value: true
     - Class: rviz_textured_quads/MeshDisplayCustom
       Enabled: true
       Image Topic: /ben/sensors/cameras/pano_4/image_raw
       Meters per pixel: 0.004999999888241291
       Name: MeshDisplayPano4
-      Quad Frame: ben/pano_4_optical
+      Quad Frame: ben/pano_4_optical_rviz_mesh
       Value: true
     - Class: rviz_textured_quads/MeshDisplayCustom
       Enabled: true
       Image Topic: /ben/sensors/cameras/pano_5/image_raw
       Meters per pixel: 0.004999999888241291
       Name: MeshDisplayPano5
-      Quad Frame: ben/pano_5_optical
+      Quad Frame: ben/pano_5_optical_rviz_mesh
       Value: true
   Enabled: true
   Global Options:

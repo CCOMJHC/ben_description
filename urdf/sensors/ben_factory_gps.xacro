@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="ben_factory_gps" params="name:=gps update_rate:=5">
-    <link name="${namespace}/${name}_link">
+    <link name="${namespace}/${name}">
       <inertial>
         <mass value="1"/>
         <inertia ixx="0.006458" ixy="0.0" ixz="0.0" iyy="0.006458" iyz="0.0" izz="0.01125"/>
@@ -11,32 +11,57 @@
       <axis xyz="0 0 1"/>
       <limit effort="1000.0" lower="0.0" upper="0" velocity="0"/>
       <parent link="${namespace}/motion_sensor_link" />
-      <child link="${namespace}/${name}_link" />
+      <child link="${namespace}/${name}" />
       <origin xyz="-0.953 0.103 0.628" rpy="0 0 0"/>
     </joint>
     <gazebo>
-      <plugin name="gps_plugin_${name}" filename="libhector_gazebo_ros_gps.so">
+      <sensor type="gps" name="${namespace}/${name}_gps">
+        <plugin name="gps_plugin_${name}" filename="libgazebo_ros_mru.so">
+          <positionTopic>${namespace}/${sensor_namespace}gps/position</positionTopic>
+          <velocityTopic>${namespace}/${sensor_namespace}gps/velocity</velocityTopic>
+          <frameId>${namespace}/${name}</frameId>
+        </plugin>         
         <updateRate>${update_rate}</updateRate>
         <alwaysOn>true</alwaysOn>
-        <bodyName>${namespace}/${name}_link</bodyName>
-        <!-- Manually prepend namespace to tf frame. -->
-        <frameId>${namespace}/${name}_link</frameId>
-        <topicName>${namespace}/${sensor_namespace}gps/position</topicName>
-        <!-- Note that the hector_gazebo_ros_gps plugin uses NWU coordinates
-             for reporting velocities.  This may cause problems if localization
-             requires velocity in ENU.
-             See Issue #64 in VRX project for details
-             https://bitbucket.org/osrf/vrx/issues/64 -->
-        <velocityTopicName>${namespace}/${sensor_namespace}gps/velocity</velocityTopicName>
-        <useWorldSphericalCoordinates>true</useWorldSphericalCoordinates>
-        <offset>0.0 0.0 0.0</offset>
-        <drift>0.5 0.5 0.5</drift>
-        <driftFrequency>0.1 0.1 0.1</driftFrequency>
-        <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
-        <velocityOffset>0.0 0.0 0.0</velocityOffset>
-        <velocityDrift>0.0 0.0 0.0</velocityDrift>
-        <velocityGaussianNoise>0.0 0.0 0.0</velocityGaussianNoise>
-      </plugin>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+                <bias_mean>0.5</bias_mean>
+                <bias_stddev>0.01</bias_stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+                <bias_mean>0.75</bias_mean>
+                <bias_stddev>0.01</bias_stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+          <velocity_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+                <bias_mean>0.1</bias_mean>
+                <bias_stddev>0.001</bias_stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+                <bias_mean>0.1</bias_mean>
+                <bias_stddev>0.001</bias_stddev>
+              </noise>
+            </vertical>
+          </velocity_sensing>
+        </gps>
+      </sensor>
     </gazebo>
   </xacro:macro>
 </robot>

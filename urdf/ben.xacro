@@ -24,9 +24,9 @@
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_factory_heading_sensor.xacro" />
   <xacro:ben_factory_heading_sensor name="heading_ben" />
 
-  <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_posmv.xacro" />
-  <xacro:ben_posmv name="posmv_ben" />
-
+  <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_posmv_mru.xacro" />
+  <xacro:ben_posmv/>
+  
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/lidar.xacro" />
   <xacro:lidar name="lidar_ben" x="-1.77" y="0.0" z="1.34" type="16_beam"/>
 
@@ -34,7 +34,7 @@
   <xacro:ben_camera name="front_camera" y="0.1" x="-1.307" z="0.742" P="${radians(0)}" />
 
   <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_pano_array.xacro" />
-  <xacro:ben_pano_array name="pano" y="0.0" x="0.0" z="1.0"/>
+  <xacro:ben_pano_array name="pano" x="-1.77" z="1.4"/>
 
   
   <!-- Robot mesh -->

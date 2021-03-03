@@ -5,11 +5,14 @@
       <visual name="${name}_visual">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <cylinder radius="0.05" length="0.05"/>
+          <mesh filename="package://ben_gazebo/models/meshes/panoramic_camera_housing.dae"/>
         </geometry>
       </visual>
       <collision name="${name}_collision">
-          <cylinder radius="0.05" length="0.05"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+        </geometry>
       </collision>
       <!-- Model inertia as box with <size>0.078 0.03 0.03</size> -->
       <inertial>
@@ -33,7 +36,7 @@
     <xacro:include filename="$(find ben_gazebo)/urdf/sensors/ben_pano_camera.xacro" />
 
     <xacro:macro name="loop" params="i">
-      <xacro:ben_pano_camera name="${name}" number="${i}" x="0.1" Y="${-radians(i*60)}" />
+      <xacro:ben_pano_camera name="${name}" number="${i}" x="0.08" z="0.05" Y="${-radians(i*60)}" />
       <xacro:if value="${i}">
         <xacro:loop i="${i-1}" />
       </xacro:if>

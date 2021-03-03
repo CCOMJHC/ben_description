@@ -62,9 +62,19 @@
     <!-- Camera to optical frame joint.  This is oriented to convert between ENU
          and camera conventions -->
     <joint name="${namespace}/${name}_${number}_to_${name}_${number}_optical_joint" type="fixed">
-      <origin xyz="10 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
       <parent link="${namespace}/${name}_${number}" />
       <child link="${namespace}/${name}_${number}_optical" />
+    </joint>
+    
+    <!--Move a reference plane away from the camera to project on in rviz-->
+    <link name="${namespace}/${name}_${number}_optical_rviz_mesh">
+    </link>
+
+    <joint name="${namespace}/${name}_${number}_optical_to_${name}_${number}_optical_rviz_mesh_joint" type="fixed">
+      <origin xyz="0 0 10" rpy="0 0 0" />
+      <parent link="${namespace}/${name}_${number}_optical" />
+      <child link="${namespace}/${name}_${number}_optical_rviz_mesh" />
     </joint>
 
 
