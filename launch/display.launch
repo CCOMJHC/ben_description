@@ -1,12 +1,17 @@
 <launch>
-    <arg name="model" default="$(find ben_gazebo)/urdf/ben.xacro"/>
-    <arg name="rvizconfig" default="$(find ben_gazebo)/rviz/urdf.rviz" />
+    <arg name="model" default="$(find ben_description)/urdf/ben_mesh.xacro"/>
+    <arg name="rvizconfig" default="$(find ben_description)/rviz/urdf.rviz" />
 
     <param name="ben/robot_description" command="$(find xacro)/xacro $(arg model)" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
       <remap from="robot_description" to="ben/robot_description" />
     </node>
+    
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+      <remap from="robot_description" to="ben/robot_description" />
+    </node>
+
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
 </launch>

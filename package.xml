@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ben_gazebo</name>
+  <name>ben_description</name>
   <version>0.0.0</version>
   <description>
     URDF model of BEN, the Bathymetric Explorer and Navigator.
@@ -13,9 +13,5 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>xacro</depend>
-  <depend>usv_gazebo_plugins</depend>
-  <depend>vrx_gazebo</depend>
-  <depend>wamv_description</depend>
-  <depend>wamv_gazebo</depend>
 
 </package>

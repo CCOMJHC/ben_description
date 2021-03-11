@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="ben">
+  <xacro:arg name="namespace" default="ben"/>
+  <xacro:property name="namespace" value="$(arg namespace)" scope="global" />
 
   <xacro:property name="mass" value="950" />
   
@@ -21,20 +23,20 @@
   
   <joint name="${namespace}_base_to_motion_sensor_joint" type="fixed">
       <parent link="${namespace}/base_link"/>
-      <child link="${namespace}/motion_sensor_link"/>
+      <child link="${namespace}/motion_sensor"/>
       <origin xyz="${- cg_x} ${- cg_y} ${buoyancy_offset - cg_z}" rpy="0 0 0"/>
   </joint>
   
-  <link name="${namespace}/motion_sensor_link">
+  <link name="${namespace}/motion_sensor">
     <visual>
         <geometry>
-            <mesh filename="package://ben_gazebo/models/meshes/BEN_shell.dae"/>
+            <mesh filename="package://ben_description/models/meshes/BEN_shell.dae"/>
         </geometry>
     </visual>
     
     <collision>
         <geometry>
-            <mesh filename="package://ben_gazebo/models/meshes/BEN_convex_hull.dae"/>
+            <mesh filename="package://ben_description/models/meshes/BEN_convex_hull.dae"/>
         </geometry>
     </collision>
     
@@ -49,5 +51,21 @@
     </inertial>
     
   </link>
+
+  <xacro:include filename="$(find ben_description)/urdf/sensors/lidar.xacro" />
+  <xacro:ben_lidar name="lidar" x="-1.77" y="0.0" z="1.38"/>
+  
+  <xacro:include filename="$(find ben_description)/urdf/sensors/pano_array.xacro" />
+  <xacro:pano_array name="pano" x="-1.77" z="1.42"/>
+
+  <xacro:include filename="$(find ben_description)/urdf/sensors/oem_gps.xacro" />
+  <xacro:oem_gps name="gps" x="-0.953" y="0.103" z="0.628"/>
+
+  <xacro:include filename="$(find ben_description)/urdf/sensors/oem_heading_sensor.xacro" />
+  <xacro:oem_heading_sensor name="heading"/>
+  
+  <xacro:include filename="$(find ben_description)/urdf/sensors/forward_camera.xacro" />
+  <xacro:forward_camera name="forward_camera" y="0.1" x="-1.307" z="0.742" P="${radians(0)}" />
+
   
 </robot>

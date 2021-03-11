@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="oem_heading_sensor" params="name:=heading">
+    <link name="${namespace}/${name}">
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.000083" ixy="0.0" ixz="0.0" iyy="0.000083" iyz="0.0" izz="0.0125"/>
+      </inertial>
+    </link>
+    <joint name="${namespace}/${name}_joint" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="1000.0" lower="0.0" upper="0" velocity="0"/>
+      <parent link="${namespace}/motion_sensor"/>
+      <child link="${namespace}/${name}"/>
+    </joint>
+  </xacro:macro>
+</robot>
