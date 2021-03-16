@@ -6,7 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 if(NOT EXISTS ${PROJECT_SOURCE_DIR}/models/meshes/BEN_shell.dae)
-  execute_process(COMMAND gunzip ARGS -k ${PROJECT_SOURCE_DIR}/models/meshes/BEN_shell.dae.gz)
+  execute_process(COMMAND gunzip -k ${PROJECT_SOURCE_DIR}/models/meshes/BEN_shell.dae.gz)
 endif()
 
 catkin_package(
