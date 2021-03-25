@@ -36,7 +36,7 @@
     <xacro:include filename="$(find ben_description)/urdf/sensors/pano_camera.xacro" />
 
     <xacro:macro name="loop" params="i">
-      <xacro:pano_camera name="${name}" number="${i}" x="0.08" z="0.05" Y="${-radians(i*60)}" />
+      <xacro:pano_camera name="${name}" number="${i+1}" x="0.08" z="0.05" Y="${-radians(i*60)}" />
       <xacro:if value="${i}">
         <xacro:loop i="${i-1}" />
       </xacro:if>
