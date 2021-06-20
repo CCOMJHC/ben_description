@@ -9,7 +9,7 @@
       <visual name="${name}_visual">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <cylinder radius="0.3" length="0.25"/>
+          <!-- <cylinder radius="0.3" length="0.25"/> -->
         </geometry>
       </visual>
       <collision name="${name}_collision">
