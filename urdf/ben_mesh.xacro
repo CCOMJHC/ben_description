@@ -71,9 +71,9 @@
   <xacro:ben_radar name="radar" x="-1.8" y="0.0" z="1.3"/>
 
   <xacro:include filename="$(find ben_description)/urdf/sensors/pano_array.xacro" />
-  <!-- <xacro:pano_array name="pano" x="-1.98" z="1.266"/> -->
+  <xacro:pano_array name="pano" x="-1.98" z="1.266"/>
   <!-- HACK moved pano array up so light is not in field of view -->
-  <xacro:pano_array name="pano" x="-1.98" z="1.366"/>  
+  <!-- <xacro:pano_array name="pano" x="-1.98" z="1.366"/>   -->
 
   <xacro:include filename="$(find ben_description)/urdf/sensors/oem_gps.xacro" />
   <xacro:oem_gps name="gps" x="-0.953" y="0.103" z="0.628"/>
