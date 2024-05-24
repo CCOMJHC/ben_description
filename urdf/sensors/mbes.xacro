@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="ben_mbes" params="name
+                                        x:=0.0 y:=0.0 z:=-1.0
+                                        R:=3.14 P:=0 Y:=0">
+
+    <link name="${namespace}/${name}">
+      <visual name="${name}_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.3" length="0.25"/>
+        </geometry>
+      </visual>
+      <collision name="${name}_collision">
+        <geometry>
+          <cylinder radius="0.3" length="0.25"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="1"/>
+        <inertia
+          ixx="0.00109375"
+          iyy="0.00109375"
+          izz="0.00125"
+          ixy="0"
+          ixz="0"
+          iyz="0"/>
+      </inertial>
+    </link>
+
+    <joint name="${namespace}/motion_sensor_to_${name}_joint" type="fixed">
+      <origin xyz="${x} ${y} ${z}" rpy="${R} ${P} ${Y}" />
+      <parent link="${namespace}/motion_sensor" />
+      <child link="${namespace}/${name}" />
+    </joint>
+  </xacro:macro>
+</robot>

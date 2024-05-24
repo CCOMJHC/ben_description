@@ -84,5 +84,8 @@
   <xacro:include filename="$(find ben_description)/urdf/sensors/forward_camera.xacro" />
   <xacro:forward_camera name="forward_camera" y="0.1" x="-1.307" z="0.742" P="${radians(0)}" />
 
+  <xacro:include filename="$(find ben_description)/urdf/sensors/mbes.xacro" />
+  <xacro:ben_mbes name="mbes" />
+
   
 </robot>
